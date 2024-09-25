@@ -1,0 +1,12 @@
+html {
+    background-color: #f1f5f9;
+  }
+  
+  body {
+    width: 100%;
+    line-height: 1.5;
+  }
+
+  * {
+  box-sizing: border-box;
+}
