@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import heroImage from "../assets/Hero1.jpg";
 ---
 
-<section class="h-[45vh]">
+<section class="h-[45vh] bg-[#e1e5e9]" transition-style="in:circle:hesitate">
   <Image src={heroImage} alt="Hero Image" class="h-[45vh] absolute -z-10" />
   <div class="h-[45vh] w-full flex justify-center items-center">
     <h1 class="h-[45vh] max-w-[46rem] text-8xl flex-wrap content-center">
@@ -11,3 +11,10 @@ import heroImage from "../assets/Hero1.jpg";
     </h1>
   </div>
 </section>
+
+<style>
+  section {
+    background-image: url("../assets/Hero1.jpg");
+    object-fit: contain;
+  }
+</style>
