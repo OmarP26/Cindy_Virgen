@@ -1,20 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import heroImage from "../assets/Hero1.jpg";
+import HeroGif from "../assets/HeroGif.gif";
 ---
 
-<section class="h-[45vh] bg-[#e1e5e9]" transition-style="in:circle:hesitate">
-  <Image src={heroImage} alt="Hero Image" class="h-[45vh] absolute -z-10" />
-  <div class="h-[45vh] w-full flex justify-center items-center">
-    <h1 class="h-[45vh] max-w-[46rem] text-8xl flex-wrap content-center">
-      Digital Marketing & SEO
-    </h1>
+<section id="hero">
+  <div class="container">
+    <Image src={HeroGif} alt="Hero" />
   </div>
 </section>
-
-<style>
-  section {
-    background-image: url("../assets/Hero1.jpg");
-    object-fit: contain;
-  }
-</style>
