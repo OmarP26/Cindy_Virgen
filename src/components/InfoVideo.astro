@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import Video from "../assets/Hero1.jpg";
+---
+
+<section id="video">
+  <div class="container">
+    <Image src={Video} alt="Hero" />
+  </div>
+</section>
+
+<style>
+  #video {
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+    margin: 0 auto;
+    height: 90vh;
+  }
+
+  #video img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>

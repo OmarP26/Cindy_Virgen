@@ -1,63 +1,43 @@
-<section id="navbar">
-  <div class="container">
-    <ul>
-      <div class="logo">
-        <li><a href="/">Logo</a></li>
-      </div>
-      <div class="menu">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/">Seo y Seo Local</a></li>
-        <li><a href="/">Diseño y Desarrollo Web</a></li>
-        <li><a href="/">Branding</a></li>
-      </div>
-    </ul>
+---
+const paths = {
+  Inicio: "/",
+  "Seo y Seo Local": "seo",
+  "Diseño y Desarrollo Web": "disenoweb",
+  Branding: "branding",
+};
+---
+
+<section id="navbar" class="flex p-4 border-b-2 bg-white">
+  <div class="p-3">Logo</div>
+  <ul class="w-full gap-4 flex flex-row justify-end hidden sm:flex">
+    {
+      Object.entries(paths).map(([name, path]) => (
+        <li class="p-3 hover:border-b-2 hover:font-extrabold cursor-pointer">
+          <a href={`${path}`} class="">
+            {name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div
+    id="burger-icon"
+    class="p-3 cursor-pointer sm:hidden font-extrabold hover:border"
+  >
+    &#9776; <!-- Unicode character for burger icon -->
   </div>
 </section>
 
 <style>
-  #navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .menu {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: auto;
-  }
-
-  li {
-    margin-right: 16px;
-  }
-
   a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    color: var(--red);
+  }
+
+  li:hover {
+    border-color: var(--red);
+  }
+
+  #burger-icon {
+    color: var(--red);
   }
 </style>
