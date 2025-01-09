@@ -1,20 +1,58 @@
 ---
-const paths = {
-  Inicio: "/",
-  "Seo y Seo Local": "seo",
-  "Diseño y Desarrollo Web": "disenoweb",
-  Branding: "branding",
-};
+import { Image } from "astro:assets";
+import acercade from "../assets/icons/acercade.svg";
+import servicios from "../assets/icons/servicios.svg";
+import trabajos from "../assets/icons/trabajos.svg";
+import contacto from "../assets/icons/contacto.svg";
+import logo from "../assets/logo.png";
+
+// const paths = {
+//   "Acerca de": "/",
+//   Servicios: "/",
+//   Trabajo: "/",
+//   Contacto: "/",
+// };
+
+const paths = [
+  {
+    menu: "Acerca de",
+    path: "/",
+    icon: acercade,
+  },
+  {
+    menu: "Servicios",
+    path: "/",
+    icon: servicios,
+  },
+  {
+    menu: "Trabajos",
+    path: "/",
+    icon: trabajos,
+  },
+  {
+    menu: "Contacto",
+    path: "/",
+    icon: contacto,
+  },
+];
 ---
 
-<section id="navbar" class="flex p-4 border-b-2 bg-white">
-  <div class="p-3">Logo</div>
+<section id="navbar" class="flex p-4 bg-white items-center justify-between">
+  <div class="w-[100px] h-full cursor-pointer">
+    <a href="/">
+      <Image src={logo} alt="Logo" class="" />
+    </a>
+  </div>
   <ul class="w-full gap-4 flex flex-row justify-end hidden sm:flex">
     {
-      Object.entries(paths).map(([name, path]) => (
-        <li class="p-3 hover:border-b-2 hover:font-extrabold cursor-pointer">
-          <a href={`${path}`} class="">
-            {name}
+      paths.map(({ menu, path, icon }) => (
+        <li class="p-3 border-0 rounded-full cursor-pointer group ease-in-out duration-300">
+          <a
+            href={`${path}`}
+            class="group-hover:text-white group-hover: flex flex-row ease-in duration-300"
+          >
+            <Image src={icon} alt={menu} class="w-6 h-6 mr-1" />
+            {menu}
           </a>
         </li>
       ))
@@ -34,7 +72,8 @@ const paths = {
   }
 
   li:hover {
-    border-color: var(--red);
+    background: var(--red);
+    color: white;
   }
 
   #burger-icon {
