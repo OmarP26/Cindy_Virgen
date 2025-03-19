@@ -3,29 +3,17 @@
 ---
 
 <section id="contacto">
-  <div class="container">
-    <div class="subtitle">
-      <h2>Vamos a conocernos! Mandame un mensaje...</h2>
-    </div>
-    <div class="form">
+  <div class="flex flex-col m-auto w-[80%]">
+    <p>Charlemos! Mandame un mensaje y discutamos tus preguntas!</p>
+    <div class="mt-4 mb-4">
       <input type="text" placeholder="Nombre y Apellidos" />
       <input type="email" placeholder="Email" />
-      <input type="tel" placeholder="Teléfono" />
-      <button type="submit">Enviar</button>
+      <input type="tel" placeholder="Telefono" />
+      <button>Enviar</button>
     </div>
-    <div class="conditions">
-      <input type="checkbox" /> Acepto los <a href="">Términos y Condiciones</a>
+    <div class="flex flex-row items-center gap-4">
+      <input type="checkbox" />
+      <p>He leido y acepto la politica de privacidad</p>
     </div>
   </div>
 </section>
-
-<style>
-  #contacto {
-    display: flex;
-    border: 1px solid black;
-    width: 100%;
-    padding: 3rem 0;
-    justify-content: center;
-    margin: 0 auto;
-  }
-</style>
