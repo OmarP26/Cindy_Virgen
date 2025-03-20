@@ -79,11 +79,13 @@ import negocio1 from "../assets/testimonios/negocio1.png";
 <script>
   let currentIndex = 0;
   const slides = document.querySelectorAll(".carousel-item");
+  let interval;
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.toggle("active", i === index);
     });
+    currentIndex = index; // Update index
   }
 
   function nextSlide() {
@@ -91,13 +93,23 @@ import negocio1 from "../assets/testimonios/negocio1.png";
     showSlide(currentIndex);
   }
 
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
+  // Auto-slide every 3 seconds
+  function startCarousel() {
+    interval = setInterval(nextSlide, 3000);
   }
 
-  // Auto-slide every 3 seconds
-  setInterval(nextSlide, 5000);
+  // Stop auto-slide on hover
+  slides.forEach((slide, index) => {
+    slide.addEventListener("mouseenter", () => {
+      clearInterval(interval); // Stop auto-slide
+      showSlide(index); // Show hovered slide
+    });
+
+    slide.addEventListener("mouseleave", startCarousel); // Resume auto-slide
+  });
+
+  // Start the carousel initially
+  startCarousel();
 </script>
 
 <style>
